@@ -48,9 +48,12 @@ abstract class Request implements _$Request {
   }
 
   factory Request.put(
-      {@required Token token, @required Uri url, Map<String, String> query}) {
-    return Request(
-        token, url.replace(queryParameters: query), Method.POST, null);
+      {@required Token token,
+      @required Uri url,
+      @required List<int> body,
+      Map<String, String> query}) {
+    return Request(token, url.replace(queryParameters: query), Method.PUT,
+        RequestBody.bytes(body));
   }
 
   factory Request.delete(

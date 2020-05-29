@@ -72,7 +72,7 @@ class RestioClientAdaptor extends HTTPClient {
   }
 
   Response _buildResponse(restio.Response response) {
-    final body = response.body != null ? response.body.data : null;
-    return Response(response.code, body);
+    // final body = response.body != null ? response.body.data : null;
+    return Response(response.code, response.body);
   }
 }

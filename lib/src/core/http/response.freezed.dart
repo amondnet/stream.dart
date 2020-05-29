@@ -12,10 +12,10 @@ T _$identity<T>(T value) => value;
 class _$ResponseTearOff {
   const _$ResponseTearOff();
 
-  _Response call(int code, Stream<List<int>> data) {
+  _Response call(int code, ResponseBody body) {
     return _Response(
       code,
-      data,
+      body,
     );
   }
 }
@@ -25,7 +25,7 @@ const $Response = _$ResponseTearOff();
 
 mixin _$Response {
   int get code;
-  Stream<List<int>> get data;
+  ResponseBody get body;
 
   $ResponseCopyWith<Response> get copyWith;
 }
@@ -33,7 +33,7 @@ mixin _$Response {
 abstract class $ResponseCopyWith<$Res> {
   factory $ResponseCopyWith(Response value, $Res Function(Response) then) =
       _$ResponseCopyWithImpl<$Res>;
-  $Res call({int code, Stream<List<int>> data});
+  $Res call({int code, ResponseBody body});
 }
 
 class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
@@ -46,11 +46,11 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
   @override
   $Res call({
     Object code = freezed,
-    Object data = freezed,
+    Object body = freezed,
   }) {
     return _then(_value.copyWith(
       code: code == freezed ? _value.code : code as int,
-      data: data == freezed ? _value.data : data as Stream<List<int>>,
+      body: body == freezed ? _value.body : body as ResponseBody,
     ));
   }
 }
@@ -59,7 +59,7 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
   factory _$ResponseCopyWith(_Response value, $Res Function(_Response) then) =
       __$ResponseCopyWithImpl<$Res>;
   @override
-  $Res call({int code, Stream<List<int>> data});
+  $Res call({int code, ResponseBody body});
 }
 
 class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
@@ -73,29 +73,29 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object code = freezed,
-    Object data = freezed,
+    Object body = freezed,
   }) {
     return _then(_Response(
       code == freezed ? _value.code : code as int,
-      data == freezed ? _value.data : data as Stream<List<int>>,
+      body == freezed ? _value.body : body as ResponseBody,
     ));
   }
 }
 
 class _$_Response extends _Response {
-  _$_Response(this.code, this.data)
+  _$_Response(this.code, this.body)
       : assert(code != null),
-        assert(data != null),
+        assert(body != null),
         super._();
 
   @override
   final int code;
   @override
-  final Stream<List<int>> data;
+  final ResponseBody body;
 
   @override
   String toString() {
-    return 'Response(code: $code, data: $data)';
+    return 'Response(code: $code, body: $body)';
   }
 
   @override
@@ -104,15 +104,15 @@ class _$_Response extends _Response {
         (other is _Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+            (identical(other.body, body) ||
+                const DeepCollectionEquality().equals(other.body, body)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(data);
+      const DeepCollectionEquality().hash(body);
 
   @override
   _$ResponseCopyWith<_Response> get copyWith =>
@@ -121,12 +121,12 @@ class _$_Response extends _Response {
 
 abstract class _Response extends Response {
   _Response._() : super._();
-  factory _Response(int code, Stream<List<int>> data) = _$_Response;
+  factory _Response(int code, ResponseBody body) = _$_Response;
 
   @override
   int get code;
   @override
-  Stream<List<int>> get data;
+  ResponseBody get body;
   @override
   _$ResponseCopyWith<_Response> get copyWith;
 }
