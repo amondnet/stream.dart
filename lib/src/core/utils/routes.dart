@@ -46,7 +46,7 @@ class Routes {
     return baseURL.replace(path: basePath + collectionsPath + path);
   }
 
-  static Uri buildReactionsURL(Uri baseURL, [String path]) {
+  static Uri buildReactionsURL(Uri baseURL, [String path = '']) {
     return baseURL.replace(path: basePath + reactionsPath + path);
   }
 

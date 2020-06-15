@@ -20,4 +20,20 @@ class FeedID {
   }
 
   static FeedID fromJson(Map json) => _$FeedIDFromJson(json);
+
+  @override
+  String toString() {
+    return slug + ':' + userID;
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FeedID &&
+          runtimeType == other.runtimeType &&
+          slug == other.slug &&
+          userID == other.userID;
+
+  @override
+  int get hashCode => slug.hashCode ^ userID.hashCode;
 }

@@ -1,3 +1,6 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+@JsonSerializable()
 class Activity {
   String id;
   String actor;
@@ -14,6 +17,10 @@ class Activity {
 
   static Activity fromJson(Map<String, dynamic> json) {
     return _$ActivityFromJson(json);
+  }
+
+  static List<Activity> listFromJson(List<Map<String, dynamic>> json) {
+    return json.map((e) => fromJson(e)).toList();
   }
 
   static Activity _$ActivityFromJson(Map json) {

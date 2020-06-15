@@ -53,3 +53,23 @@ H
 lib/src/cloud/cloud.dart,f/f/ffc33fad44dc4ff0092bb76b31dee134bc660a2c
 R
 "lib/src/cloud/cloud_flat_feed.dart,8/a/8a5fcced2cc622c0dcb0dae612b216bb2eb277a2
+R
+"lib/src/core/models/feed_id.g.dart,c/a/ca00098127248a5ddaf86ac47c01898c21d2c581
+X
+(lib/src/cloud/cloud_reaction_client.dart,7/5/7598a20daafca7e5f309747d6e72c942a94521db
+M
+lib/src/core/models/data.dart,a/7/a75afa6ca90ef08ece503b249a551be37fc8442a
+Q
+!lib/src/core/models/reaction.dart,3/9/39423edcbb9b16c8c319369f1507e02cfc8180a1
+S
+#lib/src/core/models/reaction.g.dart,5/b/5b204557d70781f5d39c889f1de6e490f4db9b23
+X
+(lib/src/core/options/request_option.dart,b/b/bb2769f51ca61fb568eae74d240b4b9ac518e535
+P
+ lib/src/core/utils/requests.dart,9/4/9482ab2cda8beaede45fab1c32a96a32b3745ecc
+N
+lib/src/core/utils/routes.dart,4/8/48209085e6574190e342a832d0d45e3de966f969
+R
+"lib/src/core/stream_reactions.dart,3/f/3f3f3550e3cc7778ccaf425299043f03d8ca8bcc
+W
+'lib/src/core/http/response.freezed.dart,2/b/2bf8f90f4dc4fd00a364146c7547632d430a9853

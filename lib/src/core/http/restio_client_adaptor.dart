@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:restio/restio.dart' as restio;
 import 'package:stream/src/core/http/http_client.dart';
 import 'package:stream/src/core/http/request.dart';
@@ -10,7 +12,8 @@ class RestioClientAdaptor extends HTTPClient {
   final restio.Restio _client;
 
   RestioClientAdaptor([restio.Restio client])
-      : _client = client ?? restio.Restio(followRedirects: false, http2: true);
+      : _client = client ??
+            restio.Restio(networkInterceptors: [restio.LogInterceptor()]);
 
   @override
   Future<Response> execute(Request request) {
@@ -28,7 +31,7 @@ class RestioClientAdaptor extends HTTPClient {
   restio.RequestBody _buildOkHttpRequestBody(RequestBody body) {
     return body.type.when(
       (contentType) => throw StateError('content type is not supported'),
-      json: (_) => restio.RequestBody.json(body.bytes),
+      json: (_) => restio.RequestBody.json(utf8.decode(body.bytes)),
       multiPart: (_) {
         if (body.bytes != null) {
           return restio.MultipartBody(parts: [
@@ -50,7 +53,7 @@ class RestioClientAdaptor extends HTTPClient {
     //String userAgent = String.format(userAgentTemplate, System.getProperty("os.name"), version);
     final header = restio.HeadersBuilder()
       ..add('Stream-Auth-Type', 'jwt')
-      ..add('Authorization', request.token.toString());
+      ..add('Authorization', request.token.token);
     // ..add('User-Agent', userAgentTemplate)
 
     switch (request.method) {
