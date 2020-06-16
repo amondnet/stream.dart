@@ -1,10 +1,12 @@
 import 'package:quiver/check.dart';
+import 'package:stream/src/cloud/cloud_flat_feed.dart';
 import 'package:stream/src/core/http/http_client.dart';
 import 'package:stream/src/core/http/response.dart';
 import 'package:stream/src/core/http/restio_client_adaptor.dart';
 import 'package:stream/src/core/http/token.dart';
 import 'package:stream/src/core/models/activity.dart';
 import 'package:stream/src/core/models/feed_id.dart';
+import 'package:stream/src/core/options/request_option.dart';
 import 'package:stream/src/core/region.dart';
 
 import '../core/stream.dart';
@@ -37,6 +39,24 @@ class CloudClient {
 
   Future<Response> addActivity(FeedID feed, Activity activity) {
     return _stream.addActivities(_token, feed, [activity]);
+  }
+
+  // TODO: add personalized feed versions
+  CloudFlatFeed flatFeed(String slug, String userID) {
+    return CloudFlatFeed(this, FeedID(slug, userID));
+  }
+
+  Future<Response> getActivities(FeedID feed, List<RequestOption> options) {
+    return _stream.getActivities(_token, feed, options);
+  }
+
+  Future<Response> addActivities(FeedID feed, List<Activity> activities) {
+    return _stream.addActivities(_token, feed, activities);
+  }
+
+  Future<Response> getEnrichedActivities(
+      FeedID feed, List<RequestOption> options) {
+    return _stream.getEnrichedActivities(_token, feed, options);
   }
 }
 

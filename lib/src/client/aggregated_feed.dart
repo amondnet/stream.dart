@@ -25,7 +25,39 @@ class AggregatedFeed extends Feed {
     options.removeWhere((element) => element == null);
     return client.getActivities(id, options).then((response) async {
       var list = List.from(await response.body.json());
-      return list.map((e) => Group.fromJson(e));
+      return list.map((e) => Group.fromJson(e)).toList();
+    });
+  }
+
+  Future<List<Group>> getCustomActivities(Type type,
+      {Limit limit = DefaultOptions.DEFAULT_LIMIT,
+      Offset offset = DefaultOptions.DEFAULT_OFFSET,
+      Filter filter,
+      ActivityMarker marker}) {
+    filter ??= DefaultOptions.DEFAULT_FILTER;
+    marker ??= DefaultOptions.DEFAULT_MARKER;
+
+    var options = [limit, offset, filter, marker];
+    options.removeWhere((element) => element == null);
+    return client.getActivities(id, options).then((response) async {
+      var list = List.from(await response.body.json());
+      return list.map((e) => Group.fromJson(e)).toList();
+    });
+  }
+
+  Future<List<Group>> getEnrichedActivities(Type type,
+      {Limit limit = DefaultOptions.DEFAULT_LIMIT,
+      Offset offset = DefaultOptions.DEFAULT_OFFSET,
+      Filter filter,
+      ActivityMarker marker}) {
+    filter ??= DefaultOptions.DEFAULT_FILTER;
+    marker ??= DefaultOptions.DEFAULT_MARKER;
+
+    var options = [limit, offset, filter, marker];
+    options.removeWhere((element) => element == null);
+    return client.getActivities(id, options).then((response) async {
+      var list = List.from(await response.body.json());
+      return list.map((e) => Group.fromJson(e)).toList();
     });
   }
 }

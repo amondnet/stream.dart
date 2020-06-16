@@ -31,7 +31,8 @@ class RestioClientAdaptor extends HTTPClient {
   restio.RequestBody _buildOkHttpRequestBody(RequestBody body) {
     return body.type.when(
       (contentType) => throw StateError('content type is not supported'),
-      json: (_) => restio.RequestBody.json(utf8.decode(body.bytes)),
+      json: (_) =>
+          restio.RequestBody.json(body.object, pretty: true, charset: 'utf-8'),
       multiPart: (_) {
         if (body.bytes != null) {
           return restio.MultipartBody(parts: [
@@ -59,18 +60,22 @@ class RestioClientAdaptor extends HTTPClient {
     switch (request.method) {
       case Method.GET:
         return restio.Request.get(request.url.toString(),
-            headers: header.build());
+            headers: header.build(),
+            queries: restio.Queries.fromMap(request.query));
       case Method.DELETE:
         return restio.Request.delete(request.url.toString(),
-            headers: header.build());
+            headers: header.build(),
+            queries: restio.Queries.fromMap(request.query));
       case Method.PUT:
         return restio.Request.put(request.url.toString(),
             headers: header.build(),
-            body: _buildOkHttpRequestBody(request.body));
+            body: _buildOkHttpRequestBody(request.body),
+            queries: restio.Queries.fromMap(request.query));
       case Method.POST:
         return restio.Request.post(request.url.toString(),
             headers: header.build(),
-            body: _buildOkHttpRequestBody(request.body));
+            body: _buildOkHttpRequestBody(request.body),
+            queries: restio.Queries.fromMap(request.query));
     }
   }
 

@@ -24,8 +24,15 @@ abstract class Request implements _$Request {
       @required Uri url,
       @required List<int> body,
       Map<String, String> query}) {
-    return Request(token, url.replace(queryParameters: query), Method.POST,
-        RequestBody.bytes(body));
+    return Request(token, url, Method.POST, RequestBody.bytes(body), query);
+  }
+
+  factory Request.postJson(
+      {@required Token token,
+      @required Uri url,
+      @required Object body,
+      Map<String, String> query}) {
+    return Request(token, url, Method.POST, RequestBody.json(body), query);
   }
 
   factory Request.multipartPost(
@@ -34,8 +41,8 @@ abstract class Request implements _$Request {
       @required List<int> body,
       @required String fileName,
       Map<String, String> query}) {
-    return Request(token, url.replace(queryParameters: query), Method.POST,
-        RequestBody.fileBytes(fileName, body));
+    return Request(
+        token, url, Method.POST, RequestBody.fileBytes(fileName, body), query);
   }
 
   factory Request.multipartPostFile(
@@ -43,8 +50,7 @@ abstract class Request implements _$Request {
       @required Uri url,
       @required File file,
       Map<String, String> query}) {
-    return Request(token, url.replace(queryParameters: query), Method.POST,
-        RequestBody.file(file));
+    return Request(token, url, Method.POST, RequestBody.file(file), query);
   }
 
   factory Request.put(
@@ -52,19 +58,16 @@ abstract class Request implements _$Request {
       @required Uri url,
       @required List<int> body,
       Map<String, String> query}) {
-    return Request(token, url.replace(queryParameters: query), Method.PUT,
-        RequestBody.bytes(body));
+    return Request(token, url, Method.PUT, RequestBody.bytes(body), query);
   }
 
   factory Request.delete(
       {@required Token token, @required Uri url, Map<String, String> query}) {
-    return Request(
-        token, url.replace(queryParameters: query), Method.DELETE, null);
+    return Request(token, url, Method.DELETE, null, query);
   }
 
   factory Request.get(
       {@required Token token, @required Uri url, Map<String, String> query}) {
-    return Request(
-        token, url.replace(queryParameters: query), Method.GET, null);
+    return Request(token, url, Method.GET, null, query);
   }
 }

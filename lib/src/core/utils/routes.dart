@@ -50,7 +50,7 @@ class Routes {
     return baseURL.replace(path: basePath + reactionsPath + path);
   }
 
-  static Uri buildUsersURL(Uri baseURL, [String path]) {
+  static Uri buildUsersURL(Uri baseURL, [String path = '']) {
     return baseURL.replace(path: basePath + usersPath + path);
   }
 

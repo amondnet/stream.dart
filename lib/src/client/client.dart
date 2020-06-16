@@ -1,9 +1,11 @@
 import 'package:quiver/check.dart';
+import 'package:stream/src/client/user.dart';
 import 'package:stream/src/core/http/http_client.dart';
 import 'package:stream/src/core/http/response.dart';
 import 'package:stream/src/core/http/restio_client_adaptor.dart';
 import 'package:stream/src/core/http/token.dart';
 import 'package:stream/src/core/models/activity.dart';
+import 'package:stream/src/core/models/data.dart';
 import 'package:stream/src/core/models/feed_id.dart';
 import 'package:stream/src/core/options/activity_marker.dart';
 import 'package:stream/src/core/options/filter.dart';
@@ -46,6 +48,26 @@ class Client {
     final token = Auth.buildFeedToken(secret, TokenAction.READ, feed);
     return stream.getActivities(token, feed, options);
   }
+
+  static ClientBuilder builder(String apiKey, String secret) {
+    return ClientBuilder(apiKey, secret);
+  }
+
+  User user(String userID) {
+    return User(this, userID);
+  }
+
+  Future<Response> getUser(String id) {
+    final token = Auth.buildUsersToken(secret, TokenAction.READ);
+    return stream.getUser(token, id, false);
+  }
+
+  Future<Response> getOrCreateUser(String id, Data data) {
+    final token = Auth.buildUsersToken(secret, TokenAction.WRITE);
+    return stream.createUser(token, id, data, true);
+  }
+
+  reactions() {}
 }
 
 class ClientBuilder {

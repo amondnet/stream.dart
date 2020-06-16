@@ -10,9 +10,12 @@ part 'reaction.g.dart';
 @JsonSerializable()
 class Reaction {
   final String id;
+  @JsonKey(name: 'app_id')
   final int appID;
   final String kind;
+  @JsonKey(name: 'user_id')
   final String userID;
+  @JsonKey(name: 'activity_id')
   final String activityID;
   final String parent;
   @JsonKey(ignore: true)
@@ -25,7 +28,7 @@ class Reaction {
   final Map<String, Object> userData;
   @JsonKey(ignore: true)
   final Map<String, Object> activityData;
-  final Map<String, Object> extra;
+  Map<String, Object> extra;
 
   Reaction(
       {this.id,
@@ -42,14 +45,13 @@ class Reaction {
       this.extra});
 
   factory Reaction.fromJson(Map<String, dynamic> json) {
-    return Reaction(
-      id: json['id'] as String,
-      appID: json['appID'] as int,
-      kind: json['kind'] as String,
-      userID: json['userID'] as String,
-      activityID: json['activityID'] as String,
-      parent: json['parent'] as String,
-      extra: json,
-    );
+    final reaction = _$ReactionFromJson(json);
+    reaction.extra = json;
+    return reaction;
+  }
+
+  @override
+  String toString() {
+    return 'Reaction{id: $id, appID: $appID, kind: $kind, userID: $userID, activityID: $activityID, parent: $parent, ownChildren: $ownChildren, latestChildren: $latestChildren, childrenCounts: $childrenCounts, userData: $userData, activityData: $activityData, extra: $extra}';
   }
 }

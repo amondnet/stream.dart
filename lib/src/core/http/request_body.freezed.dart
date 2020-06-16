@@ -474,12 +474,13 @@ class _$RequestBodyTearOff {
   const _$RequestBodyTearOff();
 
   _RequestBody call(RequestBodyType type, @nullable List<int> bytes,
-      @nullable File file, @nullable String fileName) {
+      @nullable File file, @nullable String fileName, @nullable Object object) {
     return _RequestBody(
       type,
       bytes,
       file,
       fileName,
+      object,
     );
   }
 }
@@ -495,6 +496,8 @@ mixin _$RequestBody {
   File get file;
   @nullable
   String get fileName;
+  @nullable
+  Object get object;
 
   $RequestBodyCopyWith<RequestBody> get copyWith;
 }
@@ -507,7 +510,8 @@ abstract class $RequestBodyCopyWith<$Res> {
       {RequestBodyType type,
       @nullable List<int> bytes,
       @nullable File file,
-      @nullable String fileName});
+      @nullable String fileName,
+      @nullable Object object});
 
   $RequestBodyTypeCopyWith<$Res> get type;
 }
@@ -525,12 +529,14 @@ class _$RequestBodyCopyWithImpl<$Res> implements $RequestBodyCopyWith<$Res> {
     Object bytes = freezed,
     Object file = freezed,
     Object fileName = freezed,
+    Object object = freezed,
   }) {
     return _then(_value.copyWith(
       type: type == freezed ? _value.type : type as RequestBodyType,
       bytes: bytes == freezed ? _value.bytes : bytes as List<int>,
       file: file == freezed ? _value.file : file as File,
       fileName: fileName == freezed ? _value.fileName : fileName as String,
+      object: object == freezed ? _value.object : object,
     ));
   }
 
@@ -555,7 +561,8 @@ abstract class _$RequestBodyCopyWith<$Res>
       {RequestBodyType type,
       @nullable List<int> bytes,
       @nullable File file,
-      @nullable String fileName});
+      @nullable String fileName,
+      @nullable Object object});
 
   @override
   $RequestBodyTypeCopyWith<$Res> get type;
@@ -576,19 +583,21 @@ class __$RequestBodyCopyWithImpl<$Res> extends _$RequestBodyCopyWithImpl<$Res>
     Object bytes = freezed,
     Object file = freezed,
     Object fileName = freezed,
+    Object object = freezed,
   }) {
     return _then(_RequestBody(
       type == freezed ? _value.type : type as RequestBodyType,
       bytes == freezed ? _value.bytes : bytes as List<int>,
       file == freezed ? _value.file : file as File,
       fileName == freezed ? _value.fileName : fileName as String,
+      object == freezed ? _value.object : object,
     ));
   }
 }
 
 class _$_RequestBody implements _RequestBody {
   const _$_RequestBody(this.type, @nullable this.bytes, @nullable this.file,
-      @nullable this.fileName)
+      @nullable this.fileName, @nullable this.object)
       : assert(type != null);
 
   @override
@@ -602,10 +611,13 @@ class _$_RequestBody implements _RequestBody {
   @override
   @nullable
   final String fileName;
+  @override
+  @nullable
+  final Object object;
 
   @override
   String toString() {
-    return 'RequestBody(type: $type, bytes: $bytes, file: $file, fileName: $fileName)';
+    return 'RequestBody(type: $type, bytes: $bytes, file: $file, fileName: $fileName, object: $object)';
   }
 
   @override
@@ -620,7 +632,9 @@ class _$_RequestBody implements _RequestBody {
                 const DeepCollectionEquality().equals(other.file, file)) &&
             (identical(other.fileName, fileName) ||
                 const DeepCollectionEquality()
-                    .equals(other.fileName, fileName)));
+                    .equals(other.fileName, fileName)) &&
+            (identical(other.object, object) ||
+                const DeepCollectionEquality().equals(other.object, object)));
   }
 
   @override
@@ -629,7 +643,8 @@ class _$_RequestBody implements _RequestBody {
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(bytes) ^
       const DeepCollectionEquality().hash(file) ^
-      const DeepCollectionEquality().hash(fileName);
+      const DeepCollectionEquality().hash(fileName) ^
+      const DeepCollectionEquality().hash(object);
 
   @override
   _$RequestBodyCopyWith<_RequestBody> get copyWith =>
@@ -637,8 +652,12 @@ class _$_RequestBody implements _RequestBody {
 }
 
 abstract class _RequestBody implements RequestBody {
-  const factory _RequestBody(RequestBodyType type, @nullable List<int> bytes,
-      @nullable File file, @nullable String fileName) = _$_RequestBody;
+  const factory _RequestBody(
+      RequestBodyType type,
+      @nullable List<int> bytes,
+      @nullable File file,
+      @nullable String fileName,
+      @nullable Object object) = _$_RequestBody;
 
   @override
   RequestBodyType get type;
@@ -651,6 +670,9 @@ abstract class _RequestBody implements RequestBody {
   @override
   @nullable
   String get fileName;
+  @override
+  @nullable
+  Object get object;
   @override
   _$RequestBodyCopyWith<_RequestBody> get copyWith;
 }

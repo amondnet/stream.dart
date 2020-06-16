@@ -27,18 +27,25 @@ abstract class RequestBodyType implements _$RequestBodyType {
 
 @freezed
 abstract class RequestBody with _$RequestBody {
-  const factory RequestBody(RequestBodyType type, @nullable List<int> bytes,
-      @nullable File file, @nullable String fileName) = _RequestBody;
+  const factory RequestBody(
+      RequestBodyType type,
+      @nullable List<int> bytes,
+      @nullable File file,
+      @nullable String fileName,
+      @nullable Object object) = _RequestBody;
 
   factory RequestBody.file(File file) =>
-      RequestBody(RequestBodyType.multiPart(), null, file, null);
+      RequestBody(RequestBodyType.multiPart(), null, file, null, null);
 
   factory RequestBody.fileBytes(
     String fileName,
     List<int> bytes,
   ) =>
-      RequestBody(RequestBodyType.multiPart(), bytes, null, fileName);
+      RequestBody(RequestBodyType.multiPart(), bytes, null, fileName, null);
 
   factory RequestBody.bytes(List<int> bytes) =>
-      RequestBody(RequestBodyType.json(), bytes, null, null);
+      RequestBody(RequestBodyType.json(), bytes, null, null, null);
+
+  factory RequestBody.json(Object o) =>
+      RequestBody(RequestBodyType.json(), null, null, null, o);
 }

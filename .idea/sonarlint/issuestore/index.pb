@@ -55,8 +55,6 @@ R
 "lib/src/cloud/cloud_flat_feed.dart,8/a/8a5fcced2cc622c0dcb0dae612b216bb2eb277a2
 R
 "lib/src/core/models/feed_id.g.dart,c/a/ca00098127248a5ddaf86ac47c01898c21d2c581
-X
-(lib/src/cloud/cloud_reaction_client.dart,7/5/7598a20daafca7e5f309747d6e72c942a94521db
 M
 lib/src/core/models/data.dart,a/7/a75afa6ca90ef08ece503b249a551be37fc8442a
 Q
@@ -73,3 +71,51 @@ R
 "lib/src/core/stream_reactions.dart,3/f/3f3f3550e3cc7778ccaf425299043f03d8ca8bcc
 W
 'lib/src/core/http/response.freezed.dart,2/b/2bf8f90f4dc4fd00a364146c7547632d430a9853
+P
+ lib/src/core/models/group.g.dart,7/7/778d454ae73c48500e1879e0efe14f43bb97d3e6
+Q
+!.idea/libraries/Dart_Packages.xml,f/c/fc67c2d2441e33af1dbd1e910281523d1ce74b4a
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+S
+#lib/src/client/aggregated_feed.dart,c/b/cb8d8109c7098b47abddac5fac98c47144446d3d
+O
+lib/src/cloud/cloud_client.dart,c/a/ca51dd0b0c0ab9a4516836a2644481a35679fbcd
+M
+lib/src/cloud/cloud_feed.dart,6/8/68356eae1e94bd88dfff7fba4fc1ed83e6977608
+Y
+)lib/src/cloud/cloud_reactions_client.dart,3/8/38cf7d102f5d2ed4da94100b63e225c2342a0816
+N
+lib/src/core/models/group.dart,3/4/345d37b2f8668934974858e98843a5bc34c7dcbe
+Y
+)lib/src/core/options/activity_marker.dart,c/1/c11a07fa67026a3878f6199811be37532dd35400
+`
+0lib/src/core/options/custom_query_parameter.dart,7/a/7adc17cb26a3fd79bdc6439ff346e76a79119dac
+Z
+*lib/src/core/options/enrichment_flags.dart,8/e/8efefec42d86c62e61d58d20a0b548253928da7a
+P
+ lib/src/core/options/filter.dart,a/9/a9a31871c5ae6513abdc20a730e7baf3deabdb5b
+O
+lib/src/core/options/limit.dart,e/9/e9dfccbcc861a7c5c7ba6ff7b1f3966966cd9714
+P
+ lib/src/core/options/offset.dart,5/3/5317ba2b698d58dc796f7ba06f554e83123f28d8
+Q
+!lib/src/core/options/ranking.dart,e/e/ee26152c7ea271835a1920be4358547a392131c2
+L
+lib/src/core/utils/auth.dart,d/b/dbd7f055096d598a97d13e4d6982d55a84ef371b
+W
+'lib/src/core/utils/default_options.dart,9/2/92d3c5b37503f3fe66201486bc86429ca2f6d314
+U
+%test/cloud_reactions_client_test.dart,d/2/d2f8c1000e4982f97b8fcd1500d088ad4cbad1bf
+Z
+*lib/src/core/models/enriched_activity.dart,1/4/14888d5ffa92e390a0692c12f6597a5c6516eae9
+\
+,lib/src/core/models/enriched_activity.g.dart,0/c/0cd2aef87b91c319d847adc670fe72c4288a5a86
+R
+"lib/src/core/utils/enrichment.dart,5/d/5dff2ba3c3f26b184601416fc62f1b7ba4cbd5b9
+U
+%lib/src/core/errors/stream_error.dart,b/f/bf9e517d61cc80828b4ab7861660155f65ff7232
+I
+test/cloud_feed_test.dart,2/e/2ef149ae8c19e61d210656ca98ca432464f16939
+H
+lib/src/client/user.dart,3/5/350e976d5472ad2b50cd931584f0bf521ff44448

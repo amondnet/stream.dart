@@ -9,10 +9,10 @@ part of 'reaction.dart';
 Reaction _$ReactionFromJson(Map<String, dynamic> json) {
   return Reaction(
     id: json['id'] as String,
-    appID: json['appID'] as int,
+    appID: json['app_id'] as int,
     kind: json['kind'] as String,
-    userID: json['userID'] as String,
-    activityID: json['activityID'] as String,
+    userID: json['user_id'] as String,
+    activityID: json['activity_id'] as String,
     parent: json['parent'] as String,
     extra: json['extra'] as Map<String, dynamic>,
   );
@@ -20,10 +20,10 @@ Reaction _$ReactionFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$ReactionToJson(Reaction instance) => <String, dynamic>{
       'id': instance.id,
-      'appID': instance.appID,
+      'app_id': instance.appID,
       'kind': instance.kind,
-      'userID': instance.userID,
-      'activityID': instance.activityID,
+      'user_id': instance.userID,
+      'activity_id': instance.activityID,
       'parent': instance.parent,
       'extra': instance.extra,
     };

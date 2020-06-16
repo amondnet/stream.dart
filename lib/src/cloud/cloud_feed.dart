@@ -1,4 +1,5 @@
 import 'package:quiver/check.dart';
+import 'package:stream/src/core/http/response.dart';
 import 'package:stream/src/core/models/activity.dart';
 import 'package:stream/src/core/models/feed_id.dart';
 
@@ -18,6 +19,15 @@ class CloudFeed {
   String get userID => id.userID;
 
   Future<Activity> addActivity(Activity activity) {
-    return client.addActivity(id, activity).then((response) {});
+    return client.addActivity(id, activity).then((response) async {
+      return Activity.fromJson(await response.body.json());
+    });
+  }
+
+  Future<List<Activity>> addActivities(List<Activity> activities) {
+    return client.addActivities(id, activities).then((response) async {
+      final list = List.from(await response.body.json());
+      return list.map((e) => Activity.fromJson(e));
+    });
   }
 }

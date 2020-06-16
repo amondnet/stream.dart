@@ -103,7 +103,7 @@ class StreamReactions {
     if (reaction.extra != null) {
       payload['data'] = reaction.extra;
     }
-    final json = utf8.encode(jsonEncode(payload));
+    final json = payload;
     final url = Routes.buildReactionsURL(baseURL);
     return httpClient
         .execute(Requests.buildPost(url, key, token, json))
